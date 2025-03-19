@@ -11,9 +11,36 @@
             font-family: 'Quicksand', sans-serif; 
             margin: 0; 
             padding: 0; 
-            text-align: center; 
             background-color: #e0f7ff; 
             color: #1e3a5f;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background: #b3e0ff;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        }
+        .sidebar h3 {
+            margin-top: 0;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: #1e3a5f;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background: #80cfff;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 40px;
+            max-width: 800px;
         }
         header { 
             background: #b3e0ff; 
@@ -24,33 +51,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-        .section { 
-            padding: 40px; 
-            max-width: 900px; 
-            margin: auto; 
-        }
-        .projects { 
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-            gap: 20px;
-        }
-        .project { 
-            background: white; 
-            padding: 20px; 
-            width: 300px; 
-            box-shadow: 2px 2px 10px gray; 
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-        .project:hover {
-            transform: scale(1.05);
-        }
-        .project a {
-            text-decoration: none;
-            color: #007BFF;
-            font-weight: bold;
         }
         .button {
             background: #1e90ff;
@@ -71,9 +71,9 @@
             color: #1e3a5f; 
             padding: 15px; 
             width: 100%; 
-            position: relative;
-            bottom: 0;
+            text-align: center;
             font-size: 14px;
+            margin-top: 40px;
         }
         a {
             color: #007acc;
@@ -83,19 +83,26 @@
     </style>
 </head>
 <body>
-    <header>
-        <span>Abhimanyu Dev Upadhyay</span>
-        <a href="index.html" class="button">Back to Home</a>
-    </header>
-    
-    <div class="section">
-        <h2>About Me</h2>
-        <p>I'm passionate about High-Energy Physics theory and simulations. Infact all simulations excite me and I am here to try them all. Welcome to my portfolio!</p>
+    <div class="sidebar">
+        <h3>Table of Contents</h3>
+        <a href="#about">About Me</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
     </div>
     
-    <div class="section">
-        <h2>Projects</h2>
-        <div class="projects">
+    <div class="content">
+        <header>
+            <span>Abhimanyu Dev Upadhyay</span>
+            <a href="index.html" class="button">Back to Home</a>
+        </header>
+        
+        <div id="about" class="section">
+            <h2>About Me</h2>
+            <p>I'm passionate about Quantum Computing and High-Energy Physics simulations. Welcome to my portfolio!</p>
+        </div>
+        
+        <div id="projects" class="section">
+            <h2>Projects</h2>
             <div class="project">
                 <h3>Ising Model Simulation</h3>
                 <p>A numerical simulation of the Ising Model, exploring phase transitions and magnetization using Monte Carlo methods.</p>
@@ -107,16 +114,16 @@
                 <a href="#">View Project</a>
             </div>
         </div>
+        
+        <div id="contact" class="section">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:abhiup20122004@gmail.com">abhiup20122004@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/TheBlueAdept/ThePhyCompendiumt" target="_blank">github.com/theblueadept</a></p>
+        </div>
+        
+        <footer>
+            &copy; 2025 Abhimanyu Dev Upadhyay | All Rights Reserved
+        </footer>
     </div>
-    
-    <div class="section contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:abhiup201202004@gmail.com">abhiup201202004@gmail.com</a></p>
-        <p>GitHub: <a href="https://github.com/TheBlueAdept/ThePhyCompendiumt" target="_blank">github.com/theblueadept</a></p>
-    </div>
-    
-    <footer>
-        &copy; 2025 Abhimanyu Dev Upadhyay | All Rights Reserved
-    </footer>
 </body>
 </html>
