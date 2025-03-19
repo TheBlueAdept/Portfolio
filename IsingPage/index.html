@@ -32,8 +32,8 @@
         }
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(4, auto);
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, auto);
             gap: 20px;
             justify-content: center;
             align-items: center;
@@ -81,7 +81,7 @@
 <body>
     <header>
         <span>Ising Model Simulation</span>
-        <a href="https://theblueadept.github.io/Portfolio/" class="button">Back to Home</a>
+        <a href="index.html" class="button">Back to Home</a>
     </header>
     
     <div class="section">
@@ -91,7 +91,7 @@
     
     <div class="section">
         <h2>Simulation Details</h2>
-        <p>This project explores the phase transitions and magnetization behavior using Monte Carlo methods.</p>
+        <p>This simulation implements the 2D Ising Model using the Metropolis algorithm to study spin configurations at different temperatures. The system evolves through Monte Carlo updates, where spins flip based on the energy change they induce, following the Boltzmann probability distribution. The results demonstrate phase transitions, with ordered spin configurations at low temperatures and disordered states at high temperatures. The critical temperature marks the transition between these phases, which is evident from the observed patterns.</p>
     </div>
     
     <div class="section">
