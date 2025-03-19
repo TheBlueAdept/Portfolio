@@ -21,59 +21,29 @@
             font-weight: bold;
         }
         .section {
-            padding: 50px;
+            padding: 30px;
             max-width: 800px;
             margin: auto;
         }
-        /* Carousel Styling */
-        .carousel-container {
-            position: relative;
-            max-width: 600px;
-            margin: auto;
-            overflow: hidden;
-            border: 3px solid #333;
-            border-radius: 10px;
-        }
-        .carousel-slide {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
+        /* Grid Layout */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
             justify-content: center;
             align-items: center;
+            max-width: 600px;
+            margin: auto;
         }
-        .carousel-slide img {
+        .grid-container img {
             width: 100%;
-            border-radius: 10px;
-            transition: transform 0.5s ease-in-out, filter 0.5s;
+            height: auto;
         }
-        /* Styling for side images (blur + scale) */
-        .carousel-slide img:not(.active) {
-            transform: scale(0.8);
-            filter: blur(3px);
-            opacity: 0.5;
-        }
-        .carousel-caption {
+        .grid-caption {
             margin-top: 10px;
             font-size: 18px;
             font-weight: bold;
         }
-        /* Navigation Buttons */
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            font-size: 20px;
-            border-radius: 50%;
-            transition: opacity 0.3s;
-        }
-        .prev { left: 10px; display: none; } /* Hide prev by default */
-        .next { right: 10px; }
-        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
-
         footer {
             background: #222;
             color: white;
@@ -105,25 +75,19 @@
     
     <div class="section">
         <h2>Results: Spin Configurations</h2>
-        <p>The following carousel shows spin configurations at different temperatures (T = 0 to 8).</p>
+        <p>The following grid shows spin configurations at different temperatures (T = 0 to 7).</p>
         
-        <!-- Carousel Container -->
-        <div class="carousel-container" id="carousel">
-            <button class="prev" id="prevBtn" onclick="prevSlide()">&#10094;</button>
-            <div class="carousel-slide" id="slideContainer">
-                <img src="ising_model_simulation_0.gif" alt="T = 0">
-                <img src="ising_model_simulation_1.gif" alt="T = 1">
-                <img src="ising_model_simulation_2.gif" alt="T = 2">
-                <img src="ising_model_simulation_3.gif" alt="T = 3">
-                <img src="ising_model_simulation_4.gif" alt="T = 4">
-                <img src="ising_model_simulation_5.gif" alt="T = 5">
-                <img src="ising_model_simulation_6.gif" alt="T = 6">
-                <img src="ising_model_simulation_7.gif" alt="T = 7">
-                <img src="ising_model_simulation_8.gif" alt="T = 8">
-            </div>
-            <button class="next" id="nextBtn" onclick="nextSlide()">&#10095;</button>
+        <!-- Grid Container -->
+        <div class="grid-container">
+            <img src="ising_model_simulation_0.gif" alt="T = 0">
+            <img src="ising_model_simulation_1.gif" alt="T = 1">
+            <img src="ising_model_simulation_2.gif" alt="T = 2">
+            <img src="ising_model_simulation_3.gif" alt="T = 3">
+            <img src="ising_model_simulation_4.gif" alt="T = 4">
+            <img src="ising_model_simulation_5.gif" alt="T = 5">
+            <img src="ising_model_simulation_6.gif" alt="T = 6">
+            <img src="ising_model_simulation_7.gif" alt="T = 7">
         </div>
-        <div class="carousel-caption" id="caption">T = 0</div>
     </div>
     
     <div class="section">
@@ -134,85 +98,5 @@
     <footer>
         &copy; 2025 Abhimanyu Dev Upadhyay | All Rights Reserved
     </footer>
-
-    <script>
-        let index = 0;
-        let autoSlideTimer;
-        const slides = document.querySelectorAll(".carousel-slide img");
-        const slideContainer = document.getElementById("slideContainer");
-        const caption = document.getElementById("caption");
-        const prevBtn = document.getElementById("prevBtn");
-        const nextBtn = document.getElementById("nextBtn");
-        const carousel = document.getElementById("carousel");
-
-        function updateCarousel() {
-            slideContainer.style.transform = `translateX(${-index * 100}%)`;
-            caption.innerText = "T = " + index;
-
-            // Show prev button only on index 0 and 3
-            prevBtn.style.display = "none";
-
-            // Reset styles for all images
-            slides.forEach((img, i) => {
-                img.classList.remove("active");
-                img.style.transform = "scale(0.8)";
-                img.style.filter = "blur(3px)";
-                img.style.opacity = "0.5";
-            });
-
-            // Highlight the active image
-            slides[index].classList.add("active");
-            slides[index].style.transform = "scale(1)";
-            slides[index].style.filter = "blur(0px)";
-            slides[index].style.opacity = "1";
-        }
-
-        function nextSlide() {
-            index = (index + 1) % slides.length;
-            updateCarousel();
-        }
-
-        function prevSlide() {
-            index = (index - 1 + slides.length) % slides.length;
-            updateCarousel();
-        }
-
-        function startAutoSlide() {
-            stopAutoSlide();
-            autoSlideTimer = setInterval(() => {
-                if (!userInteracting) {
-                    nextSlide();
-                }
-            }, 11000);
-        }
-
-        function stopAutoSlide() {
-            clearInterval(autoSlideTimer);
-        }
-
-        let userInteracting = false;
-
-        carousel.addEventListener("mouseenter", () => {
-            userInteracting = true;
-            stopAutoSlide();
-        });
-
-        carousel.addEventListener("mouseleave", () => {
-            userInteracting = false;
-            startAutoSlide();
-        });
-
-        carousel.addEventListener("click", () => {
-            userInteracting = true;
-            stopAutoSlide();
-            setTimeout(() => { 
-                userInteracting = false;
-                startAutoSlide();
-            }, 5000);
-        });
-
-        updateCarousel();
-        startAutoSlide();
-    </script>
 </body>
 </html>
