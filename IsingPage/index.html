@@ -25,27 +25,45 @@
             max-width: 800px;
             margin: auto;
         }
-        .gif-container {
+        /* Carousel Styling */
+        .carousel-container {
+            position: relative;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border: 3px solid #333;
+            border-radius: 10px;
+        }
+        .carousel-slide {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
+            transition: transform 0.5s ease-in-out;
         }
-        .gif-box {
-            text-align: center;
-            width: 250px;
-        }
-        .gif-box img {
+        .carousel-slide img {
             width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 2px solid #333;
+            border-radius: 10px;
         }
-        .caption {
-            margin-top: 8px;
-            font-size: 16px;
+        .carousel-caption {
+            margin-top: 10px;
+            font-size: 18px;
             font-weight: bold;
         }
+        /* Navigation Buttons */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50%;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .prev:hover, .next:hover { background-color: rgba(0, 0, 0, 0.8); }
+
         footer {
             background: #222;
             color: white;
@@ -77,43 +95,25 @@
     
     <div class="section">
         <h2>Results: Spin Configurations</h2>
-        <p>The following GIFs show the evolution of spin configurations at different temperatures (T = 0 to 8).</p>
+        <p>The following carousel shows spin configurations at different temperatures (T = 0 to 8).</p>
         
-        <div class="gif-container">
-            <!-- GIF placeholders with captions -->
-            <div class="gif-box">
-                <img src="ising_model_simulation_0.gif" alt="Ising Model at T=0">
-                <div class="caption">T = 0</div>
+        <!-- Carousel Container -->
+        <div class="carousel-container">
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <div class="carousel-slide">
+                <img src="ising_model_simulation_0.gif" alt="T = 0">
+                <img src="ising_model_simulation_1.gif" alt="T = 1">
+                <img src="ising_model_simulation_2.gif" alt="T = 2">
+                <img src="ising_model_simulation_3.gif" alt="T = 3">
+                <img src="ising_model_simulation_4.gif" alt="T = 4">
+                <img src="ising_model_simulation_5.gif" alt="T = 5">
+                <img src="ising_model_simulation_6.gif" alt="T = 6">
+                <img src="ising_model_simulation_7.gif" alt="T = 7">
+                <img src="ising_model_simulation_8.gif" alt="T = 8">
             </div>
-            <div class="gif-box">
-                <img src="ising_model_simulation_1.gif" alt="Ising Model at T=1">
-                <div class="caption">T = 1</div>
-            </div>
-            <div class="gif-box">
-                <img src="ising_model_simulation_2.gif" alt="Ising Model at T=2">
-                <div class="caption">T = 2</div>
-            </div>
-            <div class="gif-box">
-                <img src="ising_model_simulation_3.gif" alt="Ising Model at T=3">
-                <div class="caption">T = 3</div>
-            </div>
-            <div class="gif-box">
-                <img src="ising_model_simulation_4.gif" alt="Ising Model at T=4">
-                <div class="caption">T = 4</div>
-            </div>
-            <div class="gif-box">
-                <img src="ising_model_simulation_5.gif" alt="Ising Model at T=5">
-                <div class="caption">T = 5</div>
-            </div>
-            <div class="gif-box">
-                <img src="ising_model_simulation_6.gif" alt="Ising Model at T=6">
-                <div class="caption">T = 6</div>
-            </div>
-            <div class="gif-box">
-                <img src="ising_model_simulation_7.gif" alt="Ising Model at T=7">
-                <div class="caption">T = 7</div>
-            </div>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
         </div>
+        <div class="carousel-caption" id="caption">T = 0</div>
     </div>
     
     <div class="section">
@@ -124,5 +124,39 @@
     <footer>
         &copy; 2025 Abhimanyu Dev Upadhyay | All Rights Reserved
     </footer>
+
+    <script>
+        let index = 0;
+        const slides = document.querySelector(".carousel-slide");
+        const images = document.querySelectorAll(".carousel-slide img");
+        const caption = document.getElementById("caption");
+
+        function updateCaption() {
+            caption.innerText = "T = " + index;
+        }
+
+        function nextSlide() {
+            if (index >= images.length - 1) {
+                index = 0;
+            } else {
+                index++;
+            }
+            slides.style.transform = `translateX(${-index * 100}%)`;
+            updateCaption();
+        }
+
+        function prevSlide() {
+            if (index <= 0) {
+                index = images.length - 1;
+            } else {
+                index--;
+            }
+            slides.style.transform = `translateX(${-index * 100}%)`;
+            updateCaption();
+        }
+
+        // Auto-slide every 3 seconds
+        setInterval(nextSlide, 3000);
+    </script>
 </body>
 </html>
