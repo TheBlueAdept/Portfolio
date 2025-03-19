@@ -7,28 +7,64 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
         
-        body {
-            font-family: 'Quicksand', sans-serif;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-color: #e0f7ff;
+        body { 
+            font-family: 'Quicksand', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #e0f7ff; 
             color: #1e3a5f;
+            display: flex;
         }
-        header {
+        .sidebar {
+            width: 250px;
             background: #b3e0ff;
-            color: #1e3a5f;
             padding: 20px;
-            font-size: 28px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        }
+        .sidebar h3 {
+            margin-top: 0;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: #1e3a5f;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background: #80cfff;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 40px;
+            max-width: 900px;
+        }
+        header { 
+            background: #b3e0ff; 
+            color: #1e3a5f; 
+            padding: 20px; 
+            font-size: 28px; 
             font-weight: bold;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .section {
-            padding: 40px;
-            max-width: 900px;
-            margin: auto;
+        .button {
+            background: #1e90ff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background: #007acc;
         }
         .grid-container {
             display: grid;
@@ -47,29 +83,16 @@
             margin-top: 5px;
             font-size: 18px;
             font-weight: 600;
+            text-align: center;
         }
-        .button {
-            background: #1e90ff;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .button:hover {
-            background: #007acc;
-        }
-        footer {
-            background: #b3e0ff;
-            color: #1e3a5f;
-            padding: 15px;
-            width: 100%;
-            position: relative;
-            bottom: 0;
+        footer { 
+            background: #b3e0ff; 
+            color: #1e3a5f; 
+            padding: 15px; 
+            width: 100%; 
+            text-align: center;
             font-size: 14px;
+            margin-top: 40px;
         }
         a {
             color: #007acc;
@@ -79,44 +102,48 @@
     </style>
 </head>
 <body>
-    <header>
-        <span>Ising Model Simulation</span>
-        <a href="index.html" class="button">Back to Home</a>
-    </header>
-    
-    <div class="section">
-        <h2>Introduction</h2>
-        <p>The Ising Model is a mathematical model used in statistical mechanics to describe ferromagnetism in materials.</p>
+    <div class="sidebar">
+        <h3>Table of Contents</h3>
+        <a href="#introduction">Introduction</a>
+        <a href="#simulation">Simulation Details</a>
+        <a href="#results">Results</a>
     </div>
     
-    <div class="section">
-        <h2>Simulation Details</h2>
-        <p>This simulation implements the 2D Ising Model using the Metropolis algorithm to study spin configurations at different temperatures. The system evolves through Monte Carlo updates, where spins flip based on the energy change they induce, following the Boltzmann probability distribution. The results demonstrate phase transitions, with ordered spin configurations at low temperatures and disordered states at high temperatures. The critical temperature marks the transition between these phases, which is evident from the observed patterns.</p>
-    </div>
-    
-    <div class="section">
-        <h2>Spin Configurations at Different Temperatures</h2>
-        <p>Below is a visualization of the Ising Model's spin configurations at different temperatures.</p>
+    <div class="content">
+        <header>
+            <span>Ising Model Simulation</span>
+            <a href="index.html" class="button">Back to Home</a>
+        </header>
         
-        <div class="grid-container">
-            <div class="grid-item"><img src="ising_model_simulation_0.gif" alt="T = 0"><div class="caption">T = 0</div></div>
-            <div class="grid-item"><img src="ising_model_simulation_1.gif" alt="T = 1"><div class="caption">T = 1</div></div>
-            <div class="grid-item"><img src="ising_model_simulation_2.gif" alt="T = 2"><div class="caption">T = 2</div></div>
-            <div class="grid-item"><img src="ising_model_simulation_3.gif" alt="T = 3"><div class="caption">T = 3</div></div>
-            <div class="grid-item"><img src="ising_model_simulation_4.gif" alt="T = 4"><div class="caption">T = 4</div></div>
-            <div class="grid-item"><img src="ising_model_simulation_5.gif" alt="T = 5"><div class="caption">T = 5</div></div>
-            <div class="grid-item"><img src="ising_model_simulation_6.gif" alt="T = 6"><div class="caption">T = 6</div></div>
-            <div class="grid-item"><img src="ising_model_simulation_7.gif" alt="T = 7"><div class="caption">T = 7</div></div>
+        <div id="introduction" class="section">
+            <h2>Introduction</h2>
+            <p>The Ising Model is a mathematical model used in statistical mechanics to describe ferromagnetism in materials.</p>
         </div>
+        
+        <div id="simulation" class="section">
+            <h2>Simulation Details</h2>
+            <p>This simulation implements the 2D Ising Model using the Metropolis algorithm to study spin configurations at different temperatures. The system evolves through Monte Carlo updates, where spins flip based on the energy change they induce, following the Boltzmann probability distribution.</p>
+        </div>
+        
+        <div id="results" class="section">
+            <h2>Spin Configurations at Different Temperatures</h2>
+            <p>Below is a visualization of the Ising Model's spin configurations at different temperatures.</p>
+            
+            <div class="grid-container">
+                <div class="grid-item"><img src="ising_model_simulation_0.gif" alt="T = 0"><div class="caption">T = 0</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_1.gif" alt="T = 1"><div class="caption">T = 1</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_2.gif" alt="T = 2"><div class="caption">T = 2</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_3.gif" alt="T = 3"><div class="caption">T = 3</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_4.gif" alt="T = 4"><div class="caption">T = 4</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_5.gif" alt="T = 5"><div class="caption">T = 5</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_6.gif" alt="T = 6"><div class="caption">T = 6</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_7.gif" alt="T = 7"><div class="caption">T = 7</div></div>
+            </div>
+        </div>
+        
+        <footer>
+            &copy; 2025 Abhimanyu Dev Upadhyay | All Rights Reserved
+        </footer>
     </div>
-    
-    <div class="section">
-        <h2>Coming Up</h2>
-        <p>Stay tuned for more simulations and insights into statistical physics and computational methods!</p>
-    </div>
-    
-    <footer>
-        &copy; 2025 Abhimanyu Dev Upadhyay | All Rights Reserved
-    </footer>
 </body>
 </html>
