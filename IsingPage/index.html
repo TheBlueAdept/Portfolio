@@ -69,11 +69,17 @@
         .grid-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: repeat(2, auto);
             gap: 20px;
             justify-content: center;
             align-items: center;
             margin-top: 20px;
+        }
+        .grid-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         .grid-item img {
             width: 100%;
@@ -83,7 +89,6 @@
             margin-top: 5px;
             font-size: 18px;
             font-weight: 600;
-            text-align: center;
         }
         footer { 
             background: #b3e0ff; 
