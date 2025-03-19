@@ -5,22 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ising Model Simulation</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;600&display=swap');
         
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Quicksand', sans-serif;
             margin: 0;
             padding: 0;
             text-align: center;
-            background-color: #1a1f2b;
-            color: #e0e7ff;
+            background-color: #e0f7ff;
+            color: #1e3a5f;
         }
         header {
-            background: #0f172a;
-            color: white;
+            background: #b3e0ff;
+            color: #1e3a5f;
             padding: 20px;
             font-size: 28px;
             font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .section {
             padding: 40px;
@@ -31,7 +34,7 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             grid-template-rows: repeat(2, auto);
-            gap: 15px;
+            gap: 30px;
             justify-content: center;
             align-items: center;
             margin-top: 20px;
@@ -46,23 +49,22 @@
             font-weight: 600;
         }
         .button {
-            background: #2563eb;
+            background: #1e90ff;
             color: white;
             padding: 10px 20px;
             font-size: 16px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            margin-top: 20px;
             text-decoration: none;
             display: inline-block;
         }
         .button:hover {
-            background: #1e40af;
+            background: #007acc;
         }
         footer {
-            background: #0f172a;
-            color: white;
+            background: #b3e0ff;
+            color: #1e3a5f;
             padding: 15px;
             width: 100%;
             position: relative;
@@ -70,14 +72,17 @@
             font-size: 14px;
         }
         a {
-            color: #93c5fd;
+            color: #007acc;
             text-decoration: none;
             font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <header>Ising Model Simulation</header>
+    <header>
+        <span>Ising Model Simulation</span>
+        <a href="index.html" class="button">Back to Home</a>
+    </header>
     
     <div class="section">
         <h2>Spin Configurations at Different Temperatures</h2>
@@ -93,8 +98,6 @@
             <div class="grid-item"><img src="ising_model_simulation_6.gif" alt="T = 6"><div class="caption">T = 6</div></div>
             <div class="grid-item"><img src="ising_model_simulation_7.gif" alt="T = 7"><div class="caption">T = 7</div></div>
         </div>
-        
-        <a href="index.html" class="button">Back to Home</a>
     </div>
     
     <div class="section">
