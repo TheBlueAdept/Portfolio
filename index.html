@@ -63,22 +63,6 @@
             align-items: center;
         }
 
-        .button {
-            background: #1e90ff;
-            color: white;
-            padding: 10px 20px;
-            font-size: 16px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .button:hover {
-            background: #007acc;
-        }
-
         .project-box {
             background: white;
             padding: 20px;
@@ -103,7 +87,7 @@
             font-weight: bold;
         }
 
-        /* Responsive Sidebar */
+        /* Mobile Sidebar */
         .menu-button {
             display: none;
             background: #1e90ff;
@@ -151,6 +135,12 @@
         <h3>Table of Contents</h3>
         <a href="#about" onclick="toggleSidebar()">About Me</a>
         <a href="#projects" onclick="toggleSidebar()">Projects</a>
+        <a href="#education" onclick="toggleSidebar()">Education</a>
+        <a href="#coursework" onclick="toggleSidebar()">Coursework</a>
+        <a href="#achievements" onclick="toggleSidebar()">Academic Achievements</a>
+        <a href="#skills" onclick="toggleSidebar()">Technical Skills</a>
+        <a href="#positions" onclick="toggleSidebar()">Positions Held</a>
+        <a href="#extracurricular" onclick="toggleSidebar()">Extracurricular Activities</a>
         <a href="#contact" onclick="toggleSidebar()">Contact</a>
     </div>
 
@@ -164,7 +154,7 @@
             <h2>About Me</h2>
             <p>I'm passionate about Quantum Computing and High-Energy Physics simulations. Welcome to my portfolio!</p>
         </div>
-        
+
         <div id="projects" class="section">
             <h2>Projects</h2>
             <div class="project-box">
@@ -178,19 +168,37 @@
                 <a href="#">View Project</a>
             </div>
         </div>
-        
+
+        <div id="education" class="section">
+            <h2>Education</h2>
+            <p><strong>Indian Institute of Technology, Kharagpur</strong> - BS in Physics (Hons) (CGPA: 9.19/10)</p>
+            <p><strong>Kaanger Valley Academy, Raipur</strong> - Class 12: 93.8%, Class 10: 94.3%</p>
+        </div>
+
+        <div id="coursework" class="section">
+            <h2>Coursework</h2>
+            <p><strong>Physics:</strong> Quantum Mechanics, Electrodynamics, Classical Mechanics, Optics, Thermal Physics</p>
+            <p><strong>Mathematics:</strong> Advanced Calculus, Linear Algebra, Numerical Methods, Complex Analysis</p>
+            <p><strong>CS & Electronics:</strong> Computational Physics, Programming, Basic Electronics</p>
+        </div>
+
+        <div id="achievements" class="section">
+            <h2>Academic Achievements</h2>
+            <p>🏅 <strong>Department Rank 1</strong> (CGPA: 9.19/10)</p>
+            <p>🏆 JEE Advanced Rank: <strong>7649</strong> | JEE Mains Rank: <strong>8892</strong></p>
+            <p>🥇 State Rank 5 in NSO 2016, multiple school-level Olympiad ranks</p>
+        </div>
+
         <div id="contact" class="section">
             <h2>Contact</h2>
             <p>Email: <a href="mailto:abhiup20122004@gmail.com">abhiup20122004@gmail.com</a></p>
-            <p>GitHub: <a href="https://github.com/TheBlueAdept/ThePhyCompendium" target="_blank">github.com/theblueadept</a></p>
         </div>
-        
+
         <footer>
             &copy; 2025 Abhimanyu Dev Upadhyay | All Rights Reserved
         </footer>
     </div>
 
-    <!-- JavaScript for Sidebar Toggle -->
     <script>
         function toggleSidebar() {
             document.getElementById("sidebar").classList.toggle("open");
