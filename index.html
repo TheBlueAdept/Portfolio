@@ -6,7 +6,7 @@
     <title>Abhimanyu Dev Upadhyay | Portfolio</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tomorrow&display=swap');
-        
+
         body { 
             font-family: 'Tomorrow', sans-serif; 
             margin: 0; 
@@ -15,8 +15,8 @@
             color: #1e3a5f;
             display: flex;
         }
-        
-        /* Sidebar (Fixed for Large Screens) */
+
+        /* Sidebar */
         .sidebar {
             width: 250px;
             background: #b3e0ff;
@@ -103,62 +103,51 @@
             font-weight: bold;
         }
 
-        /* Mobile Sidebar */
-        .menu-icon {
+        /* Responsive Sidebar */
+        .menu-button {
             display: none;
-            font-size: 30px;
+            background: #1e90ff;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
             cursor: pointer;
             position: absolute;
-            top: 20px;
-            left: 20px;
+            top: 10px;
+            left: 10px;
             z-index: 1000;
+            border-radius: 5px;
         }
 
-        .sidebar.mobile {
-            transform: translateX(-100%);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 250px;
-            height: 100vh;
-            background: #b3e0ff;
-            padding: 20px;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .sidebar.mobile.show {
-            transform: translateX(0);
-        }
-
-        .content.mobile {
-            margin-left: 0;
-        }
-
-        /* Responsive Styles */
-        @media screen and (max-width: 768px) {
+        @media (max-width: 768px) {
             .sidebar {
-                display: none;
-            }
-
-            .menu-icon {
-                display: block;
+                transform: translateX(-100%);
+                position: absolute;
+                z-index: 999;
             }
 
             .content {
                 margin-left: 0;
                 padding: 20px;
             }
+
+            .menu-button {
+                display: block;
+            }
+        }
+
+        .sidebar.open {
+            transform: translateX(0);
         }
     </style>
 </head>
 <body>
 
-    <!-- Hamburger Menu Icon (Mobile) -->
-    <div class="menu-icon" onclick="toggleSidebar()">☰</div>
+    <!-- Menu Button (Mobile) -->
+    <button class="menu-button" onclick="toggleSidebar()">☰</button>
 
-    <!-- Sidebar (Will become overlay in mobile) -->
-    <div class="sidebar mobile" id="sidebar">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
         <h3>Table of Contents</h3>
         <a href="#about" onclick="toggleSidebar()">About Me</a>
         <a href="#projects" onclick="toggleSidebar()">Projects</a>
@@ -204,8 +193,7 @@
     <!-- JavaScript for Sidebar Toggle -->
     <script>
         function toggleSidebar() {
-            let sidebar = document.getElementById('sidebar');
-            sidebar.classList.toggle('show');
+            document.getElementById("sidebar").classList.toggle("open");
         }
     </script>
 
