@@ -23,6 +23,7 @@
             height: 100vh;
             overflow-y: auto;
             box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease-in-out;
         }
         .sidebar h3 {
             margin-top: 0;
@@ -41,6 +42,7 @@
             margin-left: 270px;
             padding: 40px;
             max-width: 900px;
+            transition: margin-left 0.3s;
         }
         header { 
             background: #b3e0ff; 
@@ -68,26 +70,28 @@
         }
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
             justify-content: center;
             align-items: center;
             margin-top: 20px;
         }
         .grid-item {
             background: white;
-            padding: 15px;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
         .grid-item img {
             width: 100%;
+            max-width: 400px;
+            height: auto;
             border-radius: 8px;
         }
         .caption {
-            margin-top: 5px;
-            font-size: 18px;
+            margin-top: 10px;
+            font-size: 20px;
             font-weight: 600;
         }
         footer { 
@@ -104,10 +108,48 @@
             text-decoration: none;
             font-weight: bold;
         }
+
+        /* Responsive Sidebar */
+        .menu-button {
+            display: none;
+            background: #1e90ff;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: absolute;
+                z-index: 999;
+            }
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            .menu-button {
+                display: block;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .sidebar.open {
+            transform: translateX(0);
+        }
     </style>
 </head>
 <body>
-    <div class="sidebar">
+    <button class="menu-button" onclick="toggleSidebar()">☰</button>
+    
+    <div class="sidebar" id="sidebar">
         <h3>Table of Contents</h3>
         <a href="#introduction">Introduction</a>
         <a href="#simulation">Simulation Details</a>
@@ -150,5 +192,11 @@
             &copy; 2025 Abhimanyu Dev Upadhyay | All Rights Reserved
         </footer>
     </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("open");
+        }
+    </script>
 </body>
 </html>
