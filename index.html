@@ -63,7 +63,7 @@
             align-items: center;
         }
 
-        .project-box {
+        .project-box, .timeline-item {
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -85,6 +85,29 @@
             color: #007acc;
             text-decoration: none;
             font-weight: bold;
+        }
+
+        /* Timeline Style */
+        .timeline {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 3px solid #1e3a5f;
+        }
+
+        .timeline-item h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #1e3a5f;
+        }
+
+        .timeline-item p {
+            margin: 5px 0 0;
+            font-size: 16px;
         }
 
         /* Mobile Sidebar */
@@ -162,36 +185,47 @@
                 <p>A numerical simulation of the Ising Model, exploring phase transitions and magnetization using Monte Carlo methods.</p>
                 <a href="https://theblueadept.github.io/Portfolio/IsingPage/">View Project</a>
             </div>
-            <div class="project-box">
-                <h3>Project 2</h3>
-                <p>Short description of your project.</p>
-                <a href="#">View Project</a>
-            </div>
         </div>
 
         <div id="education" class="section">
             <h2>Education</h2>
-            <p><strong>Indian Institute of Technology, Kharagpur</strong> - BS in Physics (Hons) (CGPA: 9.19/10)</p>
-            <p><strong>Kaanger Valley Academy, Raipur</strong> - Class 12: 93.8%, Class 10: 94.3%</p>
-        </div>
-
-        <div id="coursework" class="section">
-            <h2>Coursework</h2>
-            <p><strong>Physics:</strong> Quantum Mechanics, Electrodynamics, Classical Mechanics, Optics, Thermal Physics</p>
-            <p><strong>Mathematics:</strong> Advanced Calculus, Linear Algebra, Numerical Methods, Complex Analysis</p>
-            <p><strong>CS & Electronics:</strong> Computational Physics, Programming, Basic Electronics</p>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <h3>Indian Institute of Technology, Kharagpur</h3>
+                    <p>BS in Physics (Hons) (CGPA: 9.19/10) | 2022 - Present</p>
+                </li>
+                <li class="timeline-item">
+                    <h3>Kaanger Valley Academy, Raipur</h3>
+                    <p>Class 12: 93.8% | 2020 - 2022</p>
+                </li>
+                <li class="timeline-item">
+                    <h3>Kaanger Valley Academy, Raipur</h3>
+                    <p>Class 10: 94.3% | 2010 - 2020</p>
+                </li>
+            </ul>
         </div>
 
         <div id="achievements" class="section">
             <h2>Academic Achievements</h2>
-            <p>🏅 <strong>Department Rank 1</strong> (CGPA: 9.19/10)</p>
-            <p>🏆 JEE Advanced Rank: <strong>7649</strong> | JEE Mains Rank: <strong>8892</strong></p>
-            <p>🥇 State Rank 5 in NSO 2016, multiple school-level Olympiad ranks</p>
+            <ul>
+                <li>🏅 <strong>Department Rank 1</strong> (CGPA: 9.19/10)</li>
+                <li>🏆 JEE Advanced Rank: <strong>7649</strong> | JEE Mains Rank: <strong>8892</strong></li>
+                <li>🥇 State Rank 5 in NSO 2016, multiple school-level Olympiad ranks</li>
+            </ul>
         </div>
 
-        <div id="contact" class="section">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:abhiup20122004@gmail.com">abhiup20122004@gmail.com</a></p>
+        <div id="positions" class="section">
+            <h2>Positions Held</h2>
+            <ul class="timeline">
+                <li class="timeline-item">
+                    <h3>Student Head, Phy Society, IIT Kharagpur</h3>
+                    <p>2024 - Present</p>
+                </li>
+                <li class="timeline-item">
+                    <h3>Member, KQICC (Quantum Computing Club), IIT Kharagpur</h3>
+                    <p>2024 - Present</p>
+                </li>
+            </ul>
         </div>
 
         <footer>
