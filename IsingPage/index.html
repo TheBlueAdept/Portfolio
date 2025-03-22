@@ -7,6 +7,10 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Tomorrow&display=swap');
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body { 
             font-family: 'Tomorrow', sans-serif; 
             margin: 0; 
@@ -151,9 +155,12 @@
     
     <div class="sidebar" id="sidebar">
         <h3>Table of Contents</h3>
-        <a href="#introduction">Introduction</a>
+        <a href="#introduction">Introduction to the Ising Model</a>
+        <a href="#system">The System in Place</a>
+        <a href="#mcmc">Results from Randomness</a>
         <a href="#simulation">Simulation Details</a>
-        <a href="#results">Results</a>
+        <a href="#animations">Animated Spin Configurations</a>
+        <a href="#results">Learnings from the Ising Model</a>
     </div>
     
     <div class="content">
@@ -163,8 +170,16 @@
         </header>
         
         <div id="introduction" class="section">
-            <h2>Introduction</h2>
-            <p>The Ising Model is a mathematical model used in statistical mechanics to describe ferromagnetism in materials.</p>
+            <h2>Introduction to the Ising Model</h2>
+            <p>The Ising Model is a mathematical model used in statistical mechanics to describe ferromagnetism in materials. It also acts as the first playground for many lattice or grid based systems and is a easy system to implement Monte Carlo methods in. Even while being such a simple system, it very well models ferromagnetic behaviour and displays properties like phase transitions and correlation behaviour.</p>
+        </div>
+
+        <div id="system" class="section">
+            <h2>The System in Place</h2>
+        </div>
+
+        <div id="mcmc" class="section">
+            <h2>Results from Randomness</h2>
         </div>
         
         <div id="simulation" class="section">
@@ -172,8 +187,8 @@
             <p>This simulation implements the 2D Ising Model using the Metropolis algorithm to study spin configurations at different temperatures. The system evolves through Monte Carlo updates, where spins flip based on the energy change they induce, following the Boltzmann probability distribution.</p>
         </div>
         
-        <div id="results" class="section">
-            <h2>Spin Configurations at Different Temperatures</h2>
+        <div id="animations" class="section">
+            <h2>Animated Spin Configurations</h2>
             <p>Below is a visualization of the Ising Model's spin configurations at different temperatures.</p>
             
             <div class="grid-container">
@@ -186,6 +201,10 @@
                 <div class="grid-item"><img src="ising_model_simulation_6.gif" alt="T = 6"><div class="caption">T = 6</div></div>
                 <div class="grid-item"><img src="ising_model_simulation_7.gif" alt="T = 7"><div class="caption">T = 7</div></div>
             </div>
+        </div>
+
+        <div id="results" class="section">
+            <h2>Learnings from the Ising Model</h2>
         </div>
         
         <footer>
