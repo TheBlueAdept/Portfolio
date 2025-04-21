@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ising Model Simulation</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tomorrow&display=swap');
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body { 
+            font-family: 'Tomorrow', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #e0f7ff; 
+            color: #1e3a5f;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background: #b3e0ff;
+            padding: 20px;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease-in-out;
+        }
+        .sidebar h3 {
+            margin-top: 0;
+        }
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            color: #1e3a5f;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        .sidebar a:hover {
+            background: #80cfff;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 40px;
+            max-width: 900px;
+            transition: margin-left 0.3s;
+        }
+        header { 
+            background: #b3e0ff; 
+            color: #1e3a5f; 
+            padding: 20px; 
+            font-size: 28px; 
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .button {
+            background: #1e90ff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .button:hover {
+            background: #007acc;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .grid-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .grid-item img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        footer { 
+            background: #b3e0ff; 
+            color: #1e3a5f; 
+            padding: 15px; 
+            width: 100%; 
+            text-align: center;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+        a {
+            color: #007acc;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Responsive Sidebar */
+        .menu-button {
+            display: none;
+            background: #1e90ff;
+            color: white;
+            padding: 10px;
+            font-size: 20px;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                position: absolute;
+                z-index: 999;
+            }
+            .content {
+                margin-left: 0;
+                padding: 20px;
+            }
+            .menu-button {
+                display: block;
+            }
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .sidebar.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <button class="menu-button" onclick="toggleSidebar()">☰</button>
+    
+    <div class="sidebar" id="sidebar">
+        <h3>Table of Contents</h3>
+        <a href="#introduction">Introduction to the Ising Model</a>
+        <a href="#system">The System in Place</a>
+        <a href="#mcmc">Results from Randomness</a>
+        <a href="#simulation">Simulation Details</a>
+        <a href="#animations">Animated Spin Configurations</a>
+        <a href="#results">Learnings from the Ising Model</a>
+        <a href="#whatnext">What Next?!</a>
+        <a href="#feedback">Feedback</a>
+    </div>
+    
+    <div class="content">
+        <header>
+            <span>Ising Model Simulation</span>
+            <a href="https://theblueadept.github.io/Portfolio/" class="button">Back to Home</a>
+        </header>
+        
+        <div id="introduction" class="section">
+            <h2>Introduction to the Ising Model</h2>
+            <p>The Ising Model is a mathematical model used in statistical mechanics to describe ferromagnetism in materials. It also acts as the first playground for many lattice or grid based systems and is a easy system to implement Monte Carlo methods in. Even while being such a simple system, it very well models ferromagnetic behaviour and displays properties like phase transitions and correlation behaviour.</p>
+        </div>
+
+        <div id="system" class="section">
+            <h2>The System in Place</h2>
+        </div>
+
+        <div id="mcmc" class="section">
+            <h2>Results from Randomness</h2>
+        </div>
+        
+        <div id="simulation" class="section">
+            <h2>Simulation Details</h2>
+            <p>This simulation implements the 2D Ising Model using the Metropolis algorithm to study spin configurations at different temperatures. The system evolves through Monte Carlo updates, where spins flip based on the energy change they induce, following the Boltzmann probability distribution.</p>
+            <p>All the code, images and animations used for this project are available on my <a href="https://github.com/TheBlueAdept/ThePhyCompendium/tree/main/Ising%20Model">GitHub page</a></p>
+        </div>
+        
+        <div id="animations" class="section">
+            <h2>Animated Spin Configurations</h2>
+            <p>Below is a visualization of the Ising Model's spin configurations at different temperatures.</p>
+            
+            <div class="grid-container">
+                <div class="grid-item"><img src="ising_model_simulation_0.gif" alt="T = 0"><div class="caption">T = 0</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_1.gif" alt="T = 1"><div class="caption">T = 1</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_2.gif" alt="T = 2"><div class="caption">T = 2</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_3.gif" alt="T = 3"><div class="caption">T = 3</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_4.gif" alt="T = 4"><div class="caption">T = 4</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_5.gif" alt="T = 5"><div class="caption">T = 5</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_6.gif" alt="T = 6"><div class="caption">T = 6</div></div>
+                <div class="grid-item"><img src="ising_model_simulation_7.gif" alt="T = 7"><div class="caption">T = 7</div></div>
+            </div>
+        </div>
+
+        <div id="results" class="section">
+            <h2>Learnings from the Ising Model</h2>
+        </div>
+
+        <div id="whatnext" class="section">
+            <h2>What Next ?!</h2>
+            <p>Here are the updates I have planned to implement to the Ising Model</p>
+            <ul>
+                <li>Implement simulations with a non-zero external magnetic field.</li>
+                <li>Advanced update algortihms to save simulation time.</li>
+            </ul>
+        </div>
+
+        <div id="feedback" class="section">
+            <h2>Feedback</h2>
+            <p>Kindly provide your feedback and further ideas on my <a href="mailto:abhiup20122004@gmail.com">Email ID</a> on how to this site more interactive, intersting and resourceful !</p>
+        </div>
+        
+        <footer>
+            &copy; 2025 Abhimanyu Dev Upadhyay | All Rights Reserved
+        </footer>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            document.getElementById("sidebar").classList.toggle("open");
+        }
+    </script>
+</body>
+</html>
