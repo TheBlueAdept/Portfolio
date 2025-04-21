@@ -74,7 +74,7 @@
         }
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(1, 1fr);
             gap: 30px;
             justify-content: center;
             align-items: center;
@@ -155,68 +155,61 @@
     
     <div class="sidebar" id="sidebar">
         <h3>Table of Contents</h3>
-        <a href="#introduction">Introduction to the Ising Model</a>
-        <a href="#system">The System in Place</a>
-        <a href="#mcmc">Results from Randomness</a>
+        <a href="#introduction">Introduction to VQE and the Heisenberg XYZ Model</a>
+        <a href="#system">Model Under Consideration</a>
+        <a href="#vqe">The Quantum Way to Solve</a>
         <a href="#simulation">Simulation Details</a>
-        <a href="#animations">Animated Spin Configurations</a>
-        <a href="#results">Learnings from the Ising Model</a>
+        <a href="#results">Extracted Results</a>
         <a href="#whatnext">What Next?!</a>
         <a href="#feedback">Feedback</a>
     </div>
     
     <div class="content">
         <header>
-            <span>Ising Model Simulation</span>
+            <span>Heisenberg XYZ Simulation Using VQE</span>
             <a href="https://theblueadept.github.io/Portfolio/" class="button">Back to Home</a>
         </header>
         
         <div id="introduction" class="section">
-            <h2>Introduction to the Ising Model</h2>
-            <p>The Ising Model is a mathematical model used in statistical mechanics to describe ferromagnetism in materials. It also acts as the first playground for many lattice or grid based systems and is a easy system to implement Monte Carlo methods in. Even while being such a simple system, it very well models ferromagnetic behaviour and displays properties like phase transitions and correlation behaviour.</p>
+            <h2>Introduction to VQE and the Heisenberg XYZ Model</h2>
+            <p>The <strong>Variational Quantum Eigensolver (VQE)</strong> is a hybrid quantum-classical algorithm designed to determine the ground state energy of complex quantum systems. Utilizing a parametrized quantum circuit (ansatz), it evaluates energy expectations on a quantum simulator or processor while classical routines iteratively optimize the parameters to minimize the energy. This approach efficiently leverages quantum mechanics for computationally intensive problems.</p>
+            <p>The <strong>Heisenberg XYZ model</strong> generalizes the Ising model by considering quantum spin interactions in three spatial directions (X, Y, Z) with distinct coupling constants. It represents a 1D lattice of spin-½ particles with nearest-neighbor interactions, allowing anisotropic coupling along different axes. This model provides deep insight into magnetic systems and quantum phase transitions. Being a quantum system, it is best modelled by VQE to find the ground state energy of the system.</p>
         </div>
 
         <div id="system" class="section">
-            <h2>The System in Place</h2>
+            <h2>Model Under Consideration</h2>
         </div>
 
-        <div id="mcmc" class="section">
-            <h2>Results from Randomness</h2>
+        <div id="vqe" class="section">
+            <h2>The Quantum Way to Solve</h2>
         </div>
         
         <div id="simulation" class="section">
             <h2>Simulation Details</h2>
-            <p>This simulation implements the 2D Ising Model using the Metropolis algorithm to study spin configurations at different temperatures. The system evolves through Monte Carlo updates, where spins flip based on the energy change they induce, following the Boltzmann probability distribution.</p>
-            <p>All the code, images and animations used for this project are available on my <a href="https://github.com/TheBlueAdept/ThePhyCompendium/tree/main/Ising%20Model">GitHub page</a></p>
-        </div>
-        
-        <div id="animations" class="section">
-            <h2>Animated Spin Configurations</h2>
-            <p>Below is a visualization of the Ising Model's spin configurations at different temperatures.</p>
-            
-            <div class="grid-container">
-                <div class="grid-item"><img src="ising_model_simulation_0.gif" alt="T = 0"><div class="caption">T = 0</div></div>
-                <div class="grid-item"><img src="ising_model_simulation_1.gif" alt="T = 1"><div class="caption">T = 1</div></div>
-                <div class="grid-item"><img src="ising_model_simulation_2.gif" alt="T = 2"><div class="caption">T = 2</div></div>
-                <div class="grid-item"><img src="ising_model_simulation_3.gif" alt="T = 3"><div class="caption">T = 3</div></div>
-                <div class="grid-item"><img src="ising_model_simulation_4.gif" alt="T = 4"><div class="caption">T = 4</div></div>
-                <div class="grid-item"><img src="ising_model_simulation_5.gif" alt="T = 5"><div class="caption">T = 5</div></div>
-                <div class="grid-item"><img src="ising_model_simulation_6.gif" alt="T = 6"><div class="caption">T = 6</div></div>
-                <div class="grid-item"><img src="ising_model_simulation_7.gif" alt="T = 7"><div class="caption">T = 7</div></div>
-            </div>
+            <p>This simulation uses a 5-qubit Heisenberg XYZ model with periodic boundary conditions and no external magnetic field. Three ansatz circuits—TwoLocal, EfficientSU2, and UCCSD—are tested with Conjugate Gradient and Powell optimization methods. Executed on Qiskit’s AerSimulator due to limited access to real quantum devices, the study compares accuracy, time, and iterations.</p>
+            <p>All the code, images and animations used for this project are available on my <a href="https://github.com/TheBlueAdept/ThePhyCompendium/tree/main/Heisenberg%20XYZ%20Model">GitHub page</a></p>
         </div>
 
         <div id="results" class="section">
-            <h2>Learnings from the Ising Model</h2>
+            <h2>Extracted Results</h2>
+            <div class="grid-container">
+                <div class="grid-item"><img src="Energy by Ansatz and Optimizer-1.png" alt="Energy Comparision"><div class="caption">Energy Comparision</div></div>
+                <div class="grid-item"><img src="Execution Time by Ansatz and Optimizer-1.png" alt="Time Comparision"><div class="caption">Time Comparision</div></div>
+                <div class="grid-item"><img src="Iterations by Ansatz and Optimizer-1.png" alt="Iterations Comparision"><div class="caption">Iterations Comparision</div></div>
+                <div class="grid-item"><img src="Time vs Energy Accuracy Trade-off-1.png" alt="Overall Comparision"><div class="caption">Overall Comparision</div></div>
+            </div>
         </div>
 
         <div id="whatnext" class="section">
             <h2>What Next ?!</h2>
-            <p>Here are the updates I have planned to implement to the Ising Model</p>
+            <p>Here are the updates I have planned to implement to VQE on Heisenberg XYZ Model</p>
             <ul>
-                <li>Implement simulations with a non-zero external magnetic field.</li>
-                <li>Advanced update algortihms to save simulation time.</li>
-            </ul>
+                <li>Study the XYZ model for different values of <code>Jx</code>, <code>Jy</code>, and <code>Jz</code> to analyze ground state energy dependence on coupling constants.</li>
+                <li>Explore the effect of external magnetic fields on the ground state properties.</li>
+                <li>Investigate more ansatz and classical optimization routines; SciPy offers at least 15 optimizers.</li>
+                <li>Design a custom ansatz tailored to the XYZ model to potentially outperform TwoLocal.</li>
+                <li>Implement the simulation on real quantum devices to validate results from classical simulators.</li>
+              </ul>
         </div>
 
         <div id="feedback" class="section">
